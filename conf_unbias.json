@@ -1,0 +1,21 @@
+{
+	"model_name" : "resnet18",
+	"no_models" : 100,
+	"type" : "cifar10",
+	"CLASS_NUM" : 10,
+	"clip":20,
+	"global_epochs" : 400,
+	"local_epochs" : 2,
+	"k" : 10,
+	"batch_size" : 50,
+	"non_iid": "HeteroDiri",
+	"local_lr" : 0.1,
+	"local_momentum" : 0,
+	"redistribution" : "y",
+	"alpha":0.5,
+	"resource_max":50,
+	"stage_bound": 0.1,
+	"sim_bound": 8000,
+	"beta":1,
+	"norm_bound":1.5
+}
