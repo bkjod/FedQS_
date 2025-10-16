@@ -342,8 +342,8 @@ def get_dataset(dir, name, roll, conf, user_id):
                                 Amer_idx.append(i)
                             else:
                                 Other_idx.append(i)
-                        white_rate = len(black_idx) / len(train_dataset)
-                        black_rate = len(white_idx) / len(train_dataset) + white_rate
+                        white_rate = len(white_idx) / len(train_dataset)
+                        black_rate = len(black_idx) / len(train_dataset) + white_rate
                         Asian_rate = len(Asian_idx) / len(train_dataset) + black_rate
                         Amer_rate = len(Amer_idx) / len(train_dataset) + Asian_rate
                         Other_rate = len(Other_idx) / len(train_dataset) + Amer_rate
@@ -353,11 +353,11 @@ def get_dataset(dir, name, roll, conf, user_id):
                             if type_random < white_rate:
                                 data_indices = random.sample(white_idx, int((y0[i]/sum(y0))*len(white_idx)))
                             elif type_random < black_rate:
-                                data_indices = random.sample(black_idx, int((y0[i]/sum(y0))*len(white_idx)))
+                                data_indices = random.sample(black_idx, int((y0[i]/sum(y0))*len(black_idx)))
                             elif type_random < Asian_rate:
-                                data_indices = random.sample(Asian_idx, int((y0[i]/sum(y0))*len(white_idx)))
+                                data_indices = random.sample(Asian_idx, int((y0[i]/sum(y0))*len(Asian_idx)))
                             elif type_random < Amer_rate:
-                                data_indices = random.sample(Amer_idx, int((y0[i]/sum(y0))*len(white_idx)))
+                                data_indices = random.sample(Amer_idx, int((y0[i]/sum(y0))*len(Amer_idx)))
                             else:
                                 data_indices = random.sample(list(range(0, len(train_dataset))), int((y0[i]/sum(y0))*len(train_dataset)))
                             Data_partition.append(data_indices)
